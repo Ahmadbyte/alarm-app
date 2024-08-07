@@ -3,7 +3,7 @@
   "name": "Alarm App",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "alarm.jpg",
       "sizes": "192x192",
       "type": "image/x-icon"
     }
