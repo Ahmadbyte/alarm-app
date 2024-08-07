@@ -1,0 +1,42 @@
+/* App.css */
+
+.alarm-history {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+  }
+  
+  .alarm-history h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .alarm-history ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .alarm-history li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .alarm-history li:last-child {
+    border-bottom: none;
+  }
+  
+  .alarm-history strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .alarm-history span {
+    display: block;
+    color: #666;
+  }
+  

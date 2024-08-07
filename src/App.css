@@ -1,38 +1,240 @@
+/* Ensure body and html cover the full viewport height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* App container */
 .App {
+  font-family: Arial, sans-serif;
   text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+  min-height: 100vh; /* Ensure App covers at least the full viewport height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: var(--header-color);
+  font-size: 2rem; /* Adjusted for responsiveness */
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.current-time {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+
+.current-time {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--current-time-bg);
+  color: var(--current-time-text);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  display: inline-block; /* Ensure it doesn't exceed container width */
+}
+
+.alarm,
+.ringtone-selector {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 100%; /* Ensure it fits within the container */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+input[type="time"],
+input[type="file"] {
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg-color);
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: var(--button-active-bg-color);
+  transform: scale(0.95);
+}
+
+select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --header-color: #555;
+  --border-color: #ccc;
+  --button-bg-color: #4CAF50;
+  --button-text-color: #fff;
+  --button-hover-bg-color: #45a049;
+  --button-active-bg-color: #388e3c;
+  --current-time-bg: #fff;
+  --current-time-text: #333;
+  --card-bg-color: #ffffff;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  --background-color: #333;
+  --text-color: #f4f4f4;
+  --header-color: #bbb;
+  --border-color: #555;
+  --button-bg-color: #5a5a5a;
+  --button-text-color: #fff;
+  --button-hover-bg-color: #4a4a4a;
+  --button-active-bg-color: #333;
+  --current-time-bg: #1e1e1e;
+  --current-time-text: #f4f4f4;
+  --card-bg-color: #444;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .App {
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .current-time {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  .alarm,
+  .ringtone-selector {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* App.css */
+
+/* Light Mode Styles */
+.light-mode .alarm-history {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.light-mode .alarm-history h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.light-mode .alarm-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.light-mode .alarm-history li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.light-mode .alarm-history li:last-child {
+  border-bottom: none;
+}
+
+.light-mode .alarm-history strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.light-mode .alarm-history span {
+  display: block;
+  color: #666;
+}
+
+/* Dark Mode Styles */
+.dark-mode .alarm-history {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #515151;
+  border-radius: 15px;
+  background-color: #404040;
+}
+
+.dark-mode .alarm-history h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #eee;
+}
+
+.dark-mode .alarm-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dark-mode .alarm-history li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #555;
+}
+
+.dark-mode .alarm-history li:last-child {
+  border-bottom: none;
+}
+
+.dark-mode .alarm-history strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #ddd;
+}
+
+.dark-mode .alarm-history span {
+  display: block;
+  color: #bbb;
 }
